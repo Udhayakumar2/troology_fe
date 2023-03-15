@@ -1,0 +1,77 @@
+// .add-button{
+//     float: right;
+// }
+
+.state-fullpage{
+    // padding:20px;
+    // border-radius: 10px;
+    // background-color: #fff;
+    // box-shadow:0px 4px 12px rgba(0, 0, 0, 0.125);
+    // margin:10px;
+
+    .header-button{
+        display: flex;
+        justify-content: space-between;
+        // padding:24px 0 0;
+        
+        .state-title{
+            font-size: 18px;
+            font-weight: 600;
+            margin:0;
+            color:#333;
+        }
+
+        .add-button{
+           button{
+            background-color: #6F7FA9;
+            color:#fff;
+            padding:8px 24px;
+            font-weight: 500;
+            border:none;
+            outline:none;
+            border-radius: 5px;
+           } 
+        }
+    }
+
+    .table-wrapper{
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top:24px;
+
+        ::ng-deep{
+            thead{
+                background-color: #6F7FA9;
+
+                th{
+                    color:#fff;
+                }
+            }
+
+            tbody{
+                tr{
+                    background-color: #fff;
+
+                    td{
+                        a{
+                            i{
+                                color:#f72020;
+                                font-size: 18px;
+                                margin:0 5px;
+
+                                &.fa-edit{
+                                    color:#6F7FA9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button-wrap{
+    display: flex;
+    align-items: center;
+}

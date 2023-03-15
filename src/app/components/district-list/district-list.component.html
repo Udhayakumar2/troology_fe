@@ -1,0 +1,43 @@
+<div class="state-fullpage">
+    <div class="header-button">
+        <div class="state-title"></div>
+        <div class="add-button"><button (click)="createDistrict()"> Create + </button></div>
+    </div>
+    <div class="table-wrapper">
+        <table mat-table [dataSource]="districtList">
+
+            <ng-container matColumnDef="S.No">
+                <th mat-header-cell *matHeaderCellDef>S.No</th>
+                <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="District Code">
+                <th mat-header-cell *matHeaderCellDef>District Code</th>
+                <td mat-cell *matCellDef="let element"> {{element.district_code}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="State Name">
+                <th mat-header-cell *matHeaderCellDef>State Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.state_name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="District Name">
+                <th mat-header-cell *matHeaderCellDef>District Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.district_name}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="Actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="button-wrap">
+                        <a (click)="editDistrict(element.id)"><i class="far fa-edit"></i></a>
+                        <a (click)="deleteDistrict(element.id)"><i class="fa-regular fa-trash-can"></i></a>
+                    </div>
+                </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="districtColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: districtColumns;"></tr>
+        </table>
+    </div>
+</div>

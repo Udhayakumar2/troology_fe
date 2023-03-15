@@ -1,0 +1,25 @@
+
+.proj-title{
+    padding: 50px 20px 30px;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #44588d;
+    letter-spacing: 2px;
+    font-family: -webkit-body;
+}
+::ng-deep{
+    .mapping{
+        .mat-mdc-tab-header{
+            width: calc(100% - 110px);
+            // background-color: #FFF;
+            background-image: linear-gradient(to right, #FFF 80%, transparent);
+            z-index: 2;
+            margin-bottom: -45px;
+        }
+        .mat-mdc-tab-body-wrapper{
+            z-index: 1;
+        }
+    }
+}

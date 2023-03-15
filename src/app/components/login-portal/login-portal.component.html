@@ -1,0 +1,32 @@
+<div class="container align-content">
+    <form [formGroup]="loginForm">
+    <div class="row box justify-content-center m-0">
+        <div class="row p-0">
+            <div class="text-center p-0">
+                <h4>Login</h4>
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-12">
+                <label for="">Email</label>
+            </div>
+            <div class="col-12">
+                <input type="email" formControlName="email" id="">
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="col-12">
+                <label for="">Password</label>
+            </div>
+            <div class="col-12">
+                <input type="password" formControlName="password" id="">
+            </div>
+        </div>
+        <div class="row p-0">
+            <div class="align-content">
+                <button class="btn btn-primary" (click)="onSubmit()">submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>

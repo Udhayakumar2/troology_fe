@@ -1,0 +1,51 @@
+<div class="state-fullpage">
+    <div class="header-button">
+        <div class="state-title"></div>
+        <div class="add-button"><button (click)="createVillage()"> Create + </button></div>
+    </div>
+    <div class="table-wrapper">
+        <table mat-table [dataSource]="villageList">
+
+            <ng-container matColumnDef="S.No">
+                <th mat-header-cell *matHeaderCellDef>S.No</th>
+                <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="Village Code">
+                <th mat-header-cell *matHeaderCellDef>Village Code</th>
+                <td mat-cell *matCellDef="let element"> {{element.village_code}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="State Name">
+                <th mat-header-cell *matHeaderCellDef>State Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.state_name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="District Name">
+                <th mat-header-cell *matHeaderCellDef>District Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.district_name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Block Name">
+                <th mat-header-cell *matHeaderCellDef>Block Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.block_name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Village Name">
+                <th mat-header-cell *matHeaderCellDef>Village Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.village_name}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="Actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element">
+                    <a (click)="editVillage(element.id)"><i class="far fa-edit"></i></a>
+                    <a (click)="deleteVillage(element.id)"><i class="fa-regular fa-trash-can"></i></a>
+                </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="villageColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: villageColumns;"></tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.alert-popup{
+    padding: 30px 20px;
+    text-align: center;
+    .button-wrap{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        button{
+            padding: 8px 20px;
+            border-radius: 5px;
+            outline: none;
+            background-color: transparent;
+            &.outline-btn{
+                color: #333;
+                border: 1px solid #ccc;
+            }
+            &.primary-btn{
+                color: #FFF;
+                border: none;
+                background-color: #6F7FA9;
+            }
+        }
+    }
+}
