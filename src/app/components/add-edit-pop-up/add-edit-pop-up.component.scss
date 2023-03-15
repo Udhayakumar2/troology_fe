@@ -18,7 +18,7 @@
         div{
             display: flex;
             align-items: center;
-            margin-bottom: 24px;
+            // margin-bottom: 24px;
             width:100%;
 
             label{
@@ -29,7 +29,7 @@
                 // min-width: 300px;
                 width:100%;
                 border:1px solid #ddd;
-                height:36px;
+                // height:36px;
             }
         }
 
@@ -47,7 +47,7 @@
 ::ng-deep{
     .mat-outline-ui{
         .mat-mdc-form-field-subscript-wrapper{
-            display: none;
+            // display: none;
         }
         .mat-mdc-text-field-wrapper{
             height: 38px;
@@ -66,6 +66,11 @@
                 }
             }
         }
+
+        .mat-mdc-floating-label{
+            display:block;
+            min-width:130%;
+        }
     }
 }
 .btn-wrap{
@@ -77,4 +82,14 @@
 .button-wrap{
     display: flex;
     align-items: center;
+}
+input:required {
+    border-color: black;
+  }
+  input:invalid {
+    border-color: red;
+  }
+
+.input_err {
+    border: red 1px solid !important;
 }

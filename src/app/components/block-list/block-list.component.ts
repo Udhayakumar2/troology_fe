@@ -84,7 +84,8 @@ export class BlockListComponent {
           state_id: result.data[0].state_id, 
           district_id: result.data[0].district_id,
           block_code: result.data[0].block_code,
-          block_name: result.data[0].block_name
+          block_name: result.data[0].block_name,
+          block_id:result.data[0]._id
           },
           height: "fit-content",
           width: "400px",

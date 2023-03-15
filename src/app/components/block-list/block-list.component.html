@@ -37,8 +37,8 @@
                 <th mat-header-cell *matHeaderCellDef>Actions</th>
                 <td mat-cell *matCellDef="let element">
                     <div class="button-wrap">
-                        <a (click)="deleteBlock(element.id)"><i class="fa-regular fa-trash-can"></i></a>
                         <a (click)="editBlock(element.id)"><i class="far fa-edit"></i></a>
+                        <a (click)="deleteBlock(element.id)"><i class="fa-regular fa-trash-can"></i></a>
                     </div>
                 </td>
             </ng-container>

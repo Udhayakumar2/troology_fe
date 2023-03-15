@@ -17,6 +17,7 @@ import { DistrictListComponent } from './components/district-list/district-list.
 import { BlockListComponent } from './components/block-list/block-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select'; 
+import { MatInputModule } from '@angular/material/input';
 import { VillageListComponent } from './components/village-list/village-list.component';
 import { AlertPopUpComponent } from './components/alert-pop-up/alert-pop-up.component'; 
 
@@ -42,7 +43,8 @@ import { AlertPopUpComponent } from './components/alert-pop-up/alert-pop-up.comp
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

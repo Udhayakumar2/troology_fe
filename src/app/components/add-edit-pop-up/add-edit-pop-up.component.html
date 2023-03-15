@@ -5,12 +5,26 @@
         <!-- state Form -->
         <form [formGroup]="stateForm" *ngIf="data.module === 'State'">
             <div>
-                <label for="state_code">Enter State Code</label>
-                <input type="text" formControlName="state_code" id="state_code">
+                <div>
+                    <h3>State Code</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>State Code</mat-label>
+                         <input matInput formControlName="state_code">
+                     </mat-form-field>
+                 </div>
             </div>
             <div>
-                <label for="state_name">State Name</label>
-                <input type="text" formControlName="state_name" id="state_name">
+                <div>
+                    <h3>State Name</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>State Name</mat-label>
+                         <input matInput formControlName="state_name">
+                     </mat-form-field>
+                 </div>
             </div>
             <div class="btn-wrap">
                 <button type="submit" (click)="closePopUp()">Cancel</button>
@@ -22,25 +36,43 @@
         <!-- District Form -->
         <form [formGroup]="districtForm" *ngIf="data.module === 'District'">
             <div>
-                <label for="district_code">Enter District Code</label>
-                <input type="text" formControlName="district_code" id="district_code">
+                <div>
+                   <h3>District Code</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>District Code</mat-label>
+                        <input matInput formControlName="district_code">
+                    </mat-form-field>
+                </div>
             </div>
 
             <div>
-                <label for="district_name">District Name</label>
-                <input type="text" formControlName="district_name" id="district_name">
+                <div>
+                   <h3>District Name</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>District Name</mat-label>
+                        <input matInput formControlName="district_name">
+                    </mat-form-field>
+                </div>
             </div>
 
             <div>
-                <label for="state_name">State Name</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>State Name</mat-label>
-                    <mat-select formControlName="state_id">
-                        <mat-option *ngFor="let state of states" [value]="state._id">
-                            {{state.state_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>State Name</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>State Name</mat-label>
+                        <mat-select formControlName="state_id">
+                            <mat-option *ngFor="let state of states" [value]="state._id">
+                                {{state.state_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
             <div class="btn-wrap">
                 <button type="submit" (click)="closePopUp()">Cancel</button>
@@ -52,34 +84,56 @@
         <!-- Block Form -->
         <form [formGroup]="blockForm" *ngIf="data.module === 'Block'">
             <div>
-                <label for="block_code">Enter Block Code</label>
-                <input type="text" formControlName="block_code" id="block_code">
+                <div>
+                    <h3>Block Code</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>Block Code</mat-label>
+                         <input matInput formControlName="block_code">
+                     </mat-form-field>
+                 </div>
             </div>
             <div>
-                <label for="block_name">Block Name</label>
-                <input type="text" formControlName="block_name" id="block_name">
+                <div>
+                    <h3>Block Name</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>Block Name</mat-label>
+                         <input matInput formControlName="block_name">
+                     </mat-form-field>
+                 </div>
             </div>
             <div>
-                <label for="state_name">Select State</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>State Name</mat-label>
-                    <mat-select formControlName="state_id" (selectionChange)="getdistrictList(blockForm)">
-                        <mat-option *ngFor="let state of states" [value]="state._id">
-                            {{state.state_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>Select State</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>State Name</mat-label>
+                        <mat-select formControlName="state_id" (selectionChange)="getdistrictList(blockForm)">
+                            <mat-option *ngFor="let state of states" [value]="state._id">
+                                {{state.state_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
             <div>
-                <label for="state_name">Select District</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>District Name</mat-label>
-                    <mat-select formControlName="district_id">
-                        <mat-option *ngFor="let district of districts" [value]="district._id">
-                            {{district.district_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>Select District</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>District Name</mat-label>
+                        <mat-select formControlName="district_id">
+                            <mat-option *ngFor="let district of districts" [value]="district._id">
+                                {{district.district_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
 
             <div class="btn-wrap">
@@ -92,48 +146,73 @@
         <!-- Village Form -->
         <form [formGroup]="villageForm" *ngIf="data.module === 'Village'">
             <div>
-                <label for="village_code">Enter Village Code</label>
-                <input type="text" formControlName="village_code" id="village_code">
+                <div>
+                    <h3>Village Code</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>Village Code</mat-label>
+                         <input matInput formControlName="village_code">
+                     </mat-form-field>
+                 </div>
             </div>
 
             <div>
-                <label for="village_name">Village Name</label>
-                <input type="text" formControlName="village_name" id="village_name">
+                <div>
+                    <h3>Village Name</h3>
+                 </div>
+                 <div>
+                     <mat-form-field appearance="outline" class="mat-outline-ui">
+                         <mat-label>Village Name</mat-label>
+                         <input matInput formControlName="village_name">
+                     </mat-form-field>
+                 </div>
             </div>
 
             <div>
-                <label for="state_name">Select State</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>State Name</mat-label>
-                    <mat-select formControlName="state_id" (selectionChange)="getdistrictList(villageForm,'villageForm')">
-                        <mat-option *ngFor="let state of states" [value]="state._id">
-                            {{state.state_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>Select State</h3>
+                </div>                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>State Name</mat-label>
+                        <mat-select formControlName="state_id" (selectionChange)="getdistrictList(villageForm,'villageForm')">
+                            <mat-option *ngFor="let state of states" [value]="state._id">
+                                {{state.state_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
             <div>
-                <label for="state_name">Select District</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>District Name</mat-label>
-                    <mat-select formControlName="district_id" (selectionChange)="getblockList(villageForm)">
-                        <mat-option *ngFor="let district of districts" [value]="district._id">
-                            {{district.district_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>Select District</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>State Name</mat-label>
+                        <mat-select formControlName="district_id" (selectionChange)="getblockList(villageForm)">
+                            <mat-option *ngFor="let district of districts" [value]="district._id">
+                                {{district.district_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
 
             <div>
-                <label for="state_name">Select Block</label>
-                <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>Block Name</mat-label>
-                    <mat-select formControlName="block_id">
-                        <mat-option *ngFor="let block of blocks" [value]="block._id">
-                            {{block.block_name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <div>
+                    <h3>Select Block</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="mat-outline-ui">
+                        <mat-label>State Name</mat-label>
+                        <mat-select formControlName="block_id">
+                            <mat-option *ngFor="let block of blocks" [value]="block._id">
+                                {{block.block_name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
 
             <div class="btn-wrap">
