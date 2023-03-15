@@ -5,10 +5,10 @@ import { StateServiceService } from '../state-service.service';
 
 @Component({
   selector: 'app-state-pop-up',
-  templateUrl: './state-pop-up.component.html',
-  styleUrls: ['./state-pop-up.component.scss']
+  templateUrl: './add-edit-pop-up.component.html',
+  styleUrls: ['./add-edit-pop-up.component.scss']
 })
-export class StatePopUpComponent implements OnInit{
+export class AddEditPopUpComponent implements OnInit{
   stateForm: FormGroup;
   districtForm: FormGroup;
   blockForm: FormGroup;
@@ -19,7 +19,7 @@ export class StatePopUpComponent implements OnInit{
   blocks :any
   districtFlag :boolean=false
 
-  constructor(public dialogRef: MatDialogRef<StatePopUpComponent>,
+  constructor(public dialogRef: MatDialogRef<AddEditPopUpComponent>,
     public stateService: StateServiceService,
     @Inject(MAT_DIALOG_DATA) public data: any){
     this.stateForm = new FormGroup({
@@ -47,6 +47,7 @@ export class StatePopUpComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    /** patching different form default values based on module name */
     if(this.data && this.data.module === 'State'){
       if(this.data.title && this.data.action === 'Edit'){
         this.isEdit = true;
@@ -106,6 +107,7 @@ export class StatePopUpComponent implements OnInit{
     }
   }
 
+  /** Adding new Village */
   addVillage(){
     if(this.villageForm.valid){
       const blockData = {
@@ -125,6 +127,7 @@ export class StatePopUpComponent implements OnInit{
    }
   }
 
+    /** Adding new Block */
   addBlock(){
     if(this.blockForm.valid){
        const blockData = {
@@ -143,6 +146,7 @@ export class StatePopUpComponent implements OnInit{
     }
   }
 
+    /** Adding new District */
   addDistrict(){
     if(this.districtForm.valid){
       const districtData = {
@@ -160,6 +164,7 @@ export class StatePopUpComponent implements OnInit{
     }
   }
 
+    /** Adding new State */
   addState(){
     if(this.stateForm.invalid){
       return;
@@ -188,6 +193,7 @@ export class StatePopUpComponent implements OnInit{
     });
   }
 
+  /** Fetching district List based on selected state */
   getDistrictListbyStateId(id:any){
     this.stateService.getDistrictListbyStateId(id).subscribe((result: any) => {
       if(result && result.statusCode === 200){
@@ -224,6 +230,7 @@ export class StatePopUpComponent implements OnInit{
     }
   }
 
+    /** Updating Village */
   modifyVillage(id: any){
     if(this.villageForm.valid){
       const updateData = {
@@ -244,6 +251,8 @@ export class StatePopUpComponent implements OnInit{
       return;
     }
   }
+
+  /** Updating Block */
   modifyBlock(id: any){
     if(this.blockForm.valid){
       const updateData = {
@@ -263,6 +272,8 @@ export class StatePopUpComponent implements OnInit{
       return;
     }
   }
+
+/** Updating District */
   modifyDistrict(id: any){
     if(this.districtForm.valid){
       const updateData = {
@@ -281,7 +292,7 @@ export class StatePopUpComponent implements OnInit{
       return;
     }
   }
-
+  /** Updating State */
   modifyState(id: any){
     if(this.stateForm.valid){
       const updateData = {

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { StatePopUpComponent } from '../state-pop-up/state-pop-up.component';
+import { AddEditPopUpComponent } from '../add-edit-pop-up/add-edit-pop-up.component';
 import { AlertPopUpComponent } from '../alert-pop-up/alert-pop-up.component';
 import { StateServiceService } from '../state-service.service';
 
@@ -26,6 +26,7 @@ export class StateListComponent implements OnInit {
     this.getStates();
   }
 
+  /** Retrieving States List */
   getStates() {
     this.stateService.getStateList().subscribe((result: any) => {
       this.tempData = [];
@@ -40,7 +41,7 @@ export class StateListComponent implements OnInit {
   }
 
   createState() {
-    const dialogRef = this.dialog.open(StatePopUpComponent, {
+    const dialogRef = this.dialog.open(AddEditPopUpComponent, {
       data: { title: "Create New State",
               action: 'Add',
               module: 'State' },
@@ -75,7 +76,7 @@ export class StateListComponent implements OnInit {
   editState(id: any) {
     this.stateService.getDetailsById(id).subscribe((result) => {
       if (result.statusCode === 200) {
-        const dialogRef = this.dialog.open(StatePopUpComponent, {
+        const dialogRef = this.dialog.open(AddEditPopUpComponent, {
           data: { title: "Edit State",
           action: 'Edit',
           module: 'State', 

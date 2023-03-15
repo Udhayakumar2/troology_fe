@@ -17,6 +17,7 @@ export class AlertPopUpComponent implements OnInit{
     this.popUpMessage = this.data.message;
   }
 
+  /** Deleting modules based on name of the module */
   deleteRecord(){
     if(this.data && this.data.module === 'State'){
       this.stateService.deleteState(this.data.id).subscribe((res: any) => {

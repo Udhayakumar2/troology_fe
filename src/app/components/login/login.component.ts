@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login-portal',
-  templateUrl: './login-portal.component.html',
-  styleUrls: ['./login-portal.component.scss']
+  selector: 'login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class LoginPortalComponent {
+export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(public router: Router){
@@ -18,6 +18,7 @@ export class LoginPortalComponent {
   }
 
 
+  /** Redirecting users based on user credentials */
   onSubmit(){
     if(this.loginForm.valid){
       alert("login success!");

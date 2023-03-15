@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPortalComponent } from './components/login-portal/login-portal.component';
+import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablesComponent } from './components/tables/tables.component';
 import { MaterialModule } from './module/material/material.module';
@@ -12,7 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { StateListComponent } from './components/state-list/state-list.component';
-import { StatePopUpComponent } from './components/state-pop-up/state-pop-up.component';
+import { AddEditPopUpComponent } from './components/add-edit-pop-up/add-edit-pop-up.component';
 import { DistrictListComponent } from './components/district-list/district-list.component';
 import { BlockListComponent } from './components/block-list/block-list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,10 +23,10 @@ import { AlertPopUpComponent } from './components/alert-pop-up/alert-pop-up.comp
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPortalComponent,
+    LoginComponent,
     TablesComponent,
     StateListComponent,
-    StatePopUpComponent,
+    AddEditPopUpComponent,
     DistrictListComponent,
     BlockListComponent,
     VillageListComponent,

@@ -115,7 +115,7 @@
             <div>
                 <label for="state_name">Select District</label>
                 <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>State Name</mat-label>
+                    <mat-label>District Name</mat-label>
                     <mat-select formControlName="district_id" (selectionChange)="getblockList(villageForm)">
                         <mat-option *ngFor="let district of districts" [value]="district._id">
                             {{district.district_name}}
@@ -127,7 +127,7 @@
             <div>
                 <label for="state_name">Select Block</label>
                 <mat-form-field appearance="outline" class="mat-outline-ui">
-                    <mat-label>State Name</mat-label>
+                    <mat-label>Block Name</mat-label>
                     <mat-select formControlName="block_id">
                         <mat-option *ngFor="let block of blocks" [value]="block._id">
                             {{block.block_name}}

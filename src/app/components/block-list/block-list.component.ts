@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertPopUpComponent } from '../alert-pop-up/alert-pop-up.component';
-import { StatePopUpComponent } from '../state-pop-up/state-pop-up.component';
+import { AddEditPopUpComponent } from '../add-edit-pop-up/add-edit-pop-up.component';
 import { StateServiceService } from '../state-service.service';
 
 @Component({
@@ -18,13 +18,14 @@ export class BlockListComponent {
     public dialog: MatDialog,
     public stateService: StateServiceService
   ) {
-    this.blockColumns = ["S.No", "Block Code", "State Name","District Name", "Actions"];
+    this.blockColumns = ["S.No", "Block Code", "State Name","District Name", 'Block Name',"Actions"];
   }
 
   ngOnInit(): void {
     this.getBlockList();
   }
 
+  /** Retrieving all blocksList */
   getBlockList() {
     this.stateService.getBlockList().subscribe((result: any) => {
       this.tempData = [];
@@ -40,8 +41,9 @@ export class BlockListComponent {
     });
   }
 
+  /** CRUD operations on blocks using pop-up */
   createBlock() {
-    const dialogRef = this.dialog.open(StatePopUpComponent, {
+    const dialogRef = this.dialog.open(AddEditPopUpComponent, {
       data: { title: "Create New Block",
               action: 'Add',
               module: 'Block' },
@@ -75,7 +77,7 @@ export class BlockListComponent {
   editBlock(id: any) {
     this.stateService.getBlockDetails(id).subscribe((result: any) => {
       if (result.statusCode === 200) {
-        const dialogRef = this.dialog.open(StatePopUpComponent, {
+        const dialogRef = this.dialog.open(AddEditPopUpComponent, {
           data: { title: "Edit Block",
           action: 'Edit',
           module: 'Block', 

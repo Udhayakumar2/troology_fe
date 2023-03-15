@@ -3,6 +3,7 @@
         <div class="state-title"></div>
         <div class="add-button"><button (click)="createBlock()"> Create + </button></div>
     </div>
+    <!-- showing blocks data in a table view -->
     <div class="table-wrapper">
         <table mat-table [dataSource]="blockList">
 
@@ -29,7 +30,7 @@
 
             <ng-container matColumnDef="Block Name">
                 <th mat-header-cell *matHeaderCellDef>Block Name</th>
-                <td mat-cell *matCellDef="let element"> {{element.block | titlecase}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.block_name | titlecase}} </td>
             </ng-container>
     
             <ng-container matColumnDef="Actions">

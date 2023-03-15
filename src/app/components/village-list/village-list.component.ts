@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertPopUpComponent } from '../alert-pop-up/alert-pop-up.component';
-import { StatePopUpComponent } from '../state-pop-up/state-pop-up.component';
+import { AddEditPopUpComponent } from '../add-edit-pop-up/add-edit-pop-up.component';
 import { StateServiceService } from '../state-service.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class VillageListComponent {
     this.getVillageList();
   }
 
+  /** Fetching all Village List */
   getVillageList() {
     this.stateService.getVillageList().subscribe((result: any) => {
       this.tempData = [];
@@ -42,7 +43,7 @@ export class VillageListComponent {
   }
 
   createVillage() {
-    const dialogRef = this.dialog.open(StatePopUpComponent, {
+    const dialogRef = this.dialog.open(AddEditPopUpComponent, {
       data: { title: "Create New Village",
               action: 'Add',
               module: 'Village' },
@@ -76,7 +77,7 @@ export class VillageListComponent {
   editVillage(id: any) {
     this.stateService.getVillageDetails(id).subscribe((result: any) => {
       if (result.statusCode === 200) {
-        const dialogRef = this.dialog.open(StatePopUpComponent, {
+        const dialogRef = this.dialog.open(AddEditPopUpComponent, {
           data: { title: "Edit Village",
           action: 'Edit',
           module: 'Village', 
