@@ -122,6 +122,8 @@ export class AddEditPopUpComponent implements OnInit{
        if(result && result.statusCode === 201){
         this.toastr.success(`${result.message}`);
          this.dialogRef.close(result);
+       } else if(result && result.statusCode === 400){
+        this.toastr.warning(`${result.message}`);
        }
       });
    } else {
@@ -142,7 +144,9 @@ export class AddEditPopUpComponent implements OnInit{
         if(result && result.statusCode === 201){
           this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
-        }
+        } else if(result && result.statusCode === 400){
+          this.toastr.warning(`${result.message}`);
+         }
        });
     } else {
       return;
@@ -161,7 +165,9 @@ export class AddEditPopUpComponent implements OnInit{
         if(result && result.statusCode === 201){
           this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
-        }
+        } else if(result && result.statusCode === 400){
+          this.toastr.warning(`${result.message}`);
+         }
       })
     } else {
       return;
@@ -181,9 +187,12 @@ export class AddEditPopUpComponent implements OnInit{
       };
       this.stateService.addState(stateData).subscribe((res: any) => {
         if(res) {
-          console.log(res);
-          this.toastr.success(`${res.message}`);
-          this.dialogRef.close(res);
+          if(res && res.statusCode === 201){
+            this.toastr.success(`${res.message}`);
+            this.dialogRef.close(res);
+           } else if(res && res.statusCode === 400){
+            this.toastr.warning(`${res.message}`);
+           }
         }
       });
     }
