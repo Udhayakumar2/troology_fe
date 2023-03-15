@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { StateServiceService } from '../state-service.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AddEditPopUpComponent implements OnInit{
 
   constructor(public dialogRef: MatDialogRef<AddEditPopUpComponent>,
     public stateService: StateServiceService,
-    @Inject(MAT_DIALOG_DATA) public data: any){
+    @Inject(MAT_DIALOG_DATA) public data: any, private toastr: ToastrService){
     this.stateForm = new FormGroup({
       state_code: new FormControl('',[Validators.required]),
       state_name: new FormControl('',[Validators.required])
@@ -48,7 +49,7 @@ export class AddEditPopUpComponent implements OnInit{
 
   ngOnInit(): void {
     /** patching different form default values based on module name */
-    if(this.data && this.data.module === 'State'){
+    if(this.data && this.data.module === 'State') {
       if(this.data.title && this.data.action === 'Edit'){
         this.isEdit = true;
         this.stateForm.patchValue({
@@ -118,7 +119,8 @@ export class AddEditPopUpComponent implements OnInit{
        block_id: this.villageForm.value.block_id
       };
       this.stateService.addVillage(blockData).subscribe((result: any) => {
-       if(result && result.statusCode === 200){
+       if(result && result.statusCode === 201){
+        this.toastr.success(`${result.message}`);
          this.dialogRef.close(result);
        }
       });
@@ -137,7 +139,8 @@ export class AddEditPopUpComponent implements OnInit{
         district_id: this.blockForm.value.district_id
        };
        this.stateService.addBlock(blockData).subscribe((result: any) => {
-        if(result && result.statusCode === 200){
+        if(result && result.statusCode === 201){
+          this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
         }
        });
@@ -155,7 +158,8 @@ export class AddEditPopUpComponent implements OnInit{
         state_id: this.districtForm.value.state_id
       };
       this.stateService.addDistrict(districtData).subscribe((result: any) => {
-        if(result && result.statusCode === 200){
+        if(result && result.statusCode === 201){
+          this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
         }
       })
@@ -178,6 +182,7 @@ export class AddEditPopUpComponent implements OnInit{
       this.stateService.addState(stateData).subscribe((res: any) => {
         if(res) {
           console.log(res);
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res);
         }
       });
@@ -242,8 +247,10 @@ export class AddEditPopUpComponent implements OnInit{
       };
       this.stateService.updateVillage(id, updateData).subscribe((res) => {
         if(res && res.statusCode === 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res)
         } else if(res && res.statusCode !== 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res);
         }
       })
@@ -263,8 +270,10 @@ export class AddEditPopUpComponent implements OnInit{
       };
       this.stateService.updateBlock(id, updateData).subscribe((res) => {
         if(res && res.statusCode === 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res)
         } else if(res && res.statusCode !== 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res);
         }
       })
@@ -283,8 +292,10 @@ export class AddEditPopUpComponent implements OnInit{
       };
       this.stateService.updateDistrict(id, updateData).subscribe((res) => {
         if(res && res.statusCode === 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res)
         } else if(res && res.statusCode !== 200){
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close(res);
         }
       })
@@ -302,8 +313,10 @@ export class AddEditPopUpComponent implements OnInit{
 
       this.stateService.updateState(id, updateData).subscribe((result) => {
         if(result && result.statusCode === 200){
+          this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
         } else if(result && result.statusCode !== 200){
+          this.toastr.success(`${result.message}`);
           this.dialogRef.close(result);
         }
       })

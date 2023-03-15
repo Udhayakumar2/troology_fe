@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { VillageListComponent } from './components/village-list/village-list.component';
 import { AlertPopUpComponent } from './components/alert-pop-up/alert-pop-up.component'; 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,13 @@ import { AlertPopUpComponent } from './components/alert-pop-up/alert-pop-up.comp
     ReactiveFormsModule,
     HttpClientModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    ToastrModule.forRoot({
+      timeOut: 1500,
+      positionClass: 'toast-bottom-right',
+      maxOpened: 1,
+      preventDuplicates: true
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
